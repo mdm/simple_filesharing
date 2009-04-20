@@ -1,0 +1,40 @@
+<project>
+	<property name="source"		value="src"/>
+	<property name="out"		value="bin"/>
+	<property name="doc"		value="doc"/>
+	<property name="jarname"	value="sf_client.jar"/>
+	
+    <target name="compile">
+        <mkdir dir="${out}"/>
+        <mkdir dir="${out}/classes"/>
+        <javac srcdir="${source}" destdir="${out}/classes"/>
+        <jar destfile="${jarname}" basedir="${out}/classes">
+            <manifest>
+                <attribute name="Main-Class" value="uni.netze1.simplefilesharing.client.Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="${jarname}" fork="true"/>
+    </target>
+	
+	<target name="doc">
+		<mkdir dir="${doc}"/>
+		<javadoc sourcepath="${source}"
+			destdir="${doc}"
+			access="private"
+			packagenames="uni.netze1.simplefilesharing.client.*"/>
+	</target>
+
+    <target name="clean">
+        <delete dir="${out}"/>
+        <delete dir="${doc}"/>
+    	<delete file="${jarname}"/>
+    </target>
+	
+	<target name="createdirs">
+		<mkdir dir="shared_files"/>
+		<mkdir dir="downloaded_files"/>
+	</target>
+</project>

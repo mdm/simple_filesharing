@@ -1,0 +1,18 @@
+allo,
+
+anbei das TCL-Skript zur 1. Aufgabe und das Python-Skript zur Analyse.
+Syntax zu letzterem:
+
+python analyze.py <nam-trace-file> <data-output-file> <smoothness>
+
+Dabei ist smoothness das Resampling-Intervall in Sekunden (als Integer,
+falls 0 findet kein Resampling statt). Die Plots werden als
+"plots_<smoothness>.ps" ausgegeben.
+
+Die Plots muessen sicher noch vervollstaendigt werden.
+
+Gruss,
+Marc
+
+set nd [open out.tr w]
+$ns trace-all $nd
